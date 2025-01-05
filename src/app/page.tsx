@@ -28,7 +28,7 @@ export default async function Home() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="flex flex-col items-center text-center">
           <div className="flex items-center">
-            <h1 className="mr-3  lg:text-5xl text-4xl font-semibold">Chat with any PDF</h1>
+            <h1 className="mr-3  lg:text-5xl text-4xl font-semibold">Interaja com qualquer PDF</h1>
             <UserButton afterSignOutUrl="/" />
           </div>
 
@@ -37,7 +37,7 @@ export default async function Home() {
               <>
                 <Link href={`/chat/${firstChat.id}`}>
                   <Button>
-                    Go to Chats <ArrowRight className="ml-2" />
+                    ir para conversas <ArrowRight className="ml-2" />
                   </Button>
                 </Link>
                 <div className="ml-3">
@@ -48,8 +48,8 @@ export default async function Home() {
           </div>
 
           <p className="max-w-xl min-w-[320px] mt-1 lg:text-lg text-slate-600">
-            Join millions of students, researchers and professionals to instantly
-            answer questions and understand research with AI
+          Junte-se a milhões de estudantes, pesquisadores e profissionais para responder 
+          perguntas instantaneamente e compreender pesquisas com Inteligência Artificial.
           </p>
 
           <div className="w-full mt-4">
@@ -58,7 +58,7 @@ export default async function Home() {
             ) : (
               <Link href="/sign-in">
                 <Button>
-                  Login to get Started!
+                  Entrar para começar!
                   <LogIn className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
