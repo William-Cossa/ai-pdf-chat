@@ -60,10 +60,13 @@ export async function POST(req: Request) {
       async start(controller) {
         for await (const chunk of stream) {
           if (chunk.eventType === "text-generation") {
-            controller.enqueue(chunk.text);
+            // Converte o texto gerado em bytes usando TextEncoder
+            const encoder = new TextEncoder();
+            const encodedChunk = encoder.encode(chunk.text); // Converte o texto em Uint8Array
+            controller.enqueue(encodedChunk); // Envia o chunk para o controller
           }
         }
-        controller.close();
+        controller.close(); // Fecha o stream quando terminar
       },
     });
 
