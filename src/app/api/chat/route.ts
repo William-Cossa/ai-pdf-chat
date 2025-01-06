@@ -82,13 +82,19 @@ export async function POST(req: Request) {
       transform(chunk, controller) {
         fullResponse += chunk;
         controller.enqueue(chunk);
+
+        db.insert(_messages).values({
+          chatId,
+          content: fullResponse,
+          role: "assistant",
+        });
       },
       flush(controller) {
         // Save AI response after stream ends
         db.insert(_messages).values({
           chatId,
           content: fullResponse,
-          role: "system",
+          role: "assistant",
         });
       },
       
