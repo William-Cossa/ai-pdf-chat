@@ -38,12 +38,8 @@ const MessageList = ({ messages, isLoading }: Props) => {
                 }
               )}
             >
-                 { message.content.split("\n").map((paragraph, idx) => (
-                  <p key={idx} className="">
-                  <Markdown text={paragraph}/>
-                  </p>
-                 ))}
-           
+              
+              <Markdown text={message.content}/>
             </div>
           </div>
         );
