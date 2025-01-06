@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { Message } from "ai/react";
 import { Loader2 } from "lucide-react";
 import React from "react";
+import Markdown from "./Markdown";
 
 type Props = {
   isLoading: boolean;
@@ -30,14 +31,19 @@ const MessageList = ({ messages, isLoading }: Props) => {
           >
             <div
               className={cn(
-                "rounded-lg px-3 text-sm py-1 shadow-md ring-1 ring-gray-900/10",
+                "rounded-lg px-3 text-sm py-1 shadow-md whitespace-pre-wrap ring-1 ring-gray-900/10",
                 {
                   "bg-blue-600 text-white": message.role === "user",
                   "bg-purple-600 text-white": message.role === "assistant",
                 }
               )}
             >
-              <p>{message.content}</p>
+                 { message.content.split("\n").map((paragraph, idx) => (
+                  <p key={idx} className="">
+                  <Markdown text={paragraph}/>
+                  </p>
+                 ))}
+           
             </div>
           </div>
         );
